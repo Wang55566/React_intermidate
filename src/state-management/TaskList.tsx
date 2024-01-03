@@ -1,22 +1,22 @@
-import useAuth from './hooks/useAuth';
-import useTasks from './hooks/useTasks';
+import useAuthStore from "./auth/store";
+import useTasks from "./hooks/useTasks";
 
 const TaskList = () => {
   const { tasks, dispatch } = useTasks();
-  const { user } = useAuth();
+  const { user } = useAuthStore();
 
   return (
     <>
       <p>User: {user}</p>
       <button
         onClick={() =>
-         dispatch({
-          type: "ADD",
-          task: {
-            id: Date.now(),
-            title: 'Task' + Date.now()
-          }
-         })
+          dispatch({
+            type: "ADD",
+            task: {
+              id: Date.now(),
+              title: "Task" + Date.now(),
+            },
+          })
         }
         className="btn btn-primary my-3"
       >
@@ -31,9 +31,7 @@ const TaskList = () => {
             <span className="flex-grow-1">{task.title}</span>
             <button
               className="btn btn-outline-danger"
-              onClick={() =>
-                dispatch({type: "DELETE", taskId: task.id})
-              }
+              onClick={() => dispatch({ type: "DELETE", taskId: task.id })}
             >
               Delete
             </button>

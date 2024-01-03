@@ -1,19 +1,17 @@
-import './App.css';
-import AuthProvider from './state-management/AuthProvider';
-import HomePage from './state-management/HomePage';
-import NavBar from './state-management/NavBar';
-import TasksProvider from './state-management/TasksProvider';
+import "./App.css";
+import HomePage from "./state-management/HomePage";
+import NavBar from "./state-management/NavBar";
+import TasksProvider from "./state-management/TasksProvider";
+import Counter from "./state-management/counter/Counter";
 
 function App() {
-
   return (
-    <AuthProvider>
       <TasksProvider>
         <NavBar />
         <HomePage />
+        <Counter />
       </TasksProvider>
-    </AuthProvider>
-  )
+  );
 }
 
 export default App;
